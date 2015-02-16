@@ -19,13 +19,37 @@ class FillTheMatrix
 
         for (int col = 0; col < matrixSize; col++)
         {
-            for (int row = 0; row < matrixSize; row++ )
+            for (int row = 0; row < matrixSize; row++)
             {
-                matrix[row, col] = col*matrixSize + (row +1);
+                matrix[row, col] = col * matrixSize + (row + 1);
             }
         }
-
+        Console.WriteLine("Variant A");
+        Console.WriteLine(new string('*', 30));
         PrintMatrix(matrix);
+        Console.WriteLine(new string('*', 30));
+        Console.WriteLine();
+
+        // Variant B
+
+        for (int col = 0; col < matrixSize; col = col + 2)
+        {
+            for (int row = 0; row < matrixSize; row++)
+            {
+                matrix[row, col] = col * matrixSize + (row + 1);
+            }
+        }
+        for (int col = 1; col < matrixSize; col = col + 2)
+        {
+            for (int row = matrixSize - 1; row >= 0; row--)
+            {
+                matrix[row, col] = col * matrixSize + (matrixSize - row );
+            }
+        }
+        Console.WriteLine("Variant B");
+        Console.WriteLine(new string('*', 30));
+        PrintMatrix(matrix);
+        Console.WriteLine(new string('*', 30));
 
     }
 
